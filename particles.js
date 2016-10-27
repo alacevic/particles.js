@@ -530,9 +530,9 @@ pJS.insert = function(str, index, value) {
       pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value));
     }
 
-    pJS.fn.setParticleTargetShape(pJS.WorldSimpleFull);
-    
-    pJS.fn.drawCounter = 0;
+
+    //pJS.fn.setParticleTargetShape(pJS.WorldSimpleFull);
+    //pJS.fn.drawCounter = 0;
 
   };
   
@@ -549,8 +549,10 @@ pJS.insert = function(str, index, value) {
     }
   }
 
-  pJS.fn.setParticleTargetShape = function(simpleSvgShape){
-    
+  ///
+  /// returns an array with tokens, each command and number is a token.
+  ///
+  pJS.fn.tokenizeSvg = function(simpleSvgShape){
     //var res = d.replace(/,/g, " ").replace(/m/g, " m ").replace(/M/g, " M ").replace(/z/g, " z ").replace(/Z/g, " Z ").split(" ");
     var fixedUpPath = simpleSvgShape.replace(/,/g, " ").replace(/m/g, " m ").replace(/M/g, " M ").replace(/-/g, " -");
     fixedUpPath = fixedUpPath.replace(/z/g, " z ").replace(/Z/g, " Z ").replace(/v/g, " v ").replace(/V/g, " V ").replace(/h/g, " h ").replace(/H/g, " H ");
@@ -595,14 +597,28 @@ pJS.insert = function(str, index, value) {
         }
     }
 
-    var res = fixedUpPath.split(" ");
+    return fixedUpPath.split(" ");
+
+  }
+
+  pJS.fn.setParticleTargetShape = function(simpleSvgShape, scaleFactor, shiftX, shiftY){
+    
+    if (scaleFactor === undefined)
+      scaleFactor = 1;
+    
+    if (shiftX === undefined)
+      shiftX = 0;
+    
+    if (shiftY === undefined)
+      shiftY = 0;
+    
+
+    var res = pJS.fn.tokenizeSvg(simpleSvgShape);
     
 
     pJS.fn.clearParticleTargetShape();
 
-    var scaleFactor = 1;
-    var shiftX = 100;
-    var shiftY = 100;
+    
 
     // set destination points: 
     //----------------------------------------------
@@ -663,14 +679,12 @@ pJS.insert = function(str, index, value) {
             
             p.destX = svgPointX + prevPoint.destX;
             p.destY = svgPointY + prevPoint.destY;
-            //p.linkToNext = true;
           }
           else
           {
             //this is an absolute position:
             p.destX = svgPointX + shiftX;
             p.destY = svgPointY + shiftY;
-            //p.linkToNext = true;
           }
           
           //if line, link this particle to previous one, unless it is the first particle in path.
@@ -740,7 +754,7 @@ pJS.insert = function(str, index, value) {
           
           //x axis stays the same
           p.destX = prevPoint.destX;
-          //p.linkToNext = true;
+          
           if (firstParticleInPath != p)
             p.linkTo = pJS.particles.array[iParticle - 1];
           
@@ -768,7 +782,7 @@ pJS.insert = function(str, index, value) {
   }
 
 
-  pJS.fn.particlesUpdate = function(){
+  pJS.fn.particlesUpdate = function() {
 
     
     for (var i = 0; i < pJS.particles.array.length; i++){
@@ -790,12 +804,6 @@ pJS.insert = function(str, index, value) {
           p.x += dx * ms;
           p.y += dy * ms;
           
-          //link to next particle
-          //if (p.linkToNext){
-          //  var pLink = pJS.particles.array[i+1];
-          //  pJS.fn.interact.linkParticles(p, pLink);
-          //}
-
           if (p.linkTo != null){
             pJS.fn.interact.linkParticles(p, p.linkTo);
           }
@@ -808,7 +816,7 @@ pJS.insert = function(str, index, value) {
       }
 
 
-      //pJS.fn.drawCounter++;
+      pJS.fn.drawCounter++;
 
 /*
       if (pJS.fn.drawCounter == 140000)
