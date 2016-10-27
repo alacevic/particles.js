@@ -824,13 +824,14 @@ pJS.insert = function(str, index, value) {
       }
 
 
-      pJS.fn.drawCounter++;
+      /*pJS.fn.drawCounter++;
 
       if (pJS.fn.drawCounter == 40000)
       {
         //pJS.fn.setParticleTargetShape(4);
         pJS.fn.setParticleTargetShape(pJS.California, 2, 500, 100);
       }
+      */
 
       /*
       else if (pJS.fn.drawCounter == 230000){
