@@ -159,11 +159,15 @@ var pJS = function(tag_id, params){
 
   pJS.TestSegment = "M151.67,428l-.33-13.67,14.5-12.67v-40l25.08-32-.58-4.5H174.67l-42.33-53h15L182,312.25,220.34,292l-12-11L192,279.67l-9.67-13.5H192l8,9.08,35,.42L265,329l6,.33,4.67-9.67L276,311l25.67-21.33,3,1.67L309,291l4,2.33,3.83,5.33V310l9.92.33.58,20,18.33,17L345,341l-10-11,1.33-14L347,326l12.33.33.33-11-11.33-13L350,294l3.33-2.83H371l10.33-4.75L389,276.33l-.67-45,10-.83,4.33,1.5,3.17,4.67v14.5h8.83L414,232.92,446,197l.67-39.33z";
 
-pJS.WorldOrg = "M386.33,508.33l-.83,16.33-46.83,54.5-1,16.83L330,609l-15,.33.17-56.5L323.83,510,323,495.83l-31-32.17V442.83l9-12.17V415.33l-18.58-.83L262.83,393l-36.67.17L171.83,320l-1.17-52.83-4-12.17-7.33-12.83-9.5-10-9.5-7.83-12.67-4.5L66,219.67v-11l-3-4H54.5L50.83,202,51,179.83l5,.33,3.67-1.83,3.83-3.17,2-4.33.5-21.17,30.67.33L121,161.83l10.5,3,52,.5,12.67,9.83,41-.5,30-17,23.5,7.17.33,29.83H256l-.5,30.17,1,7.33,4.67,6.83,5.5,3.33,4.67,2.83,14.33-.17-.17,24.67,10.17.17-.17-59.5,20-.67,10.33,9.17-.17,11,13.67.17,6.17,5.17.33,12.17,20.33,10.83L365,262.5,354,274l-15.17-.17.17,24.5-46.5,49.33,3.17,8.5-.67,9.67-3.5.83L288.83,360l-2-10.5-35,.5-3,2.5L245.5,357l.5,21.17,3.17,5.83,10.33-.33,7.5-9.17,4.83.33,11.5,16.67.83,11.67,5.33,6.33,65.67,1.17,10.33,9.17,4,7.17,4.67,6.83,7,6.17,37.83-.17,6,6.83v17.5l-13.67,14.17L411.17,507ZM0,156.67v54l16-18.5,15,.5-.5-13ZM626.33,512,626,498.33l14.5-12.67v-40l25.08-32-.58-4.5H649.33l-42.33-53h15l34.67,40.08L695,376l-12-11-16.33-1.33L657,350.17h9.67l8,9.08,35,.42,30,53.33,6,.33,4.67-9.67.33-8.67,25.67-21.33,3,1.67,4.33-.33,4,2.33,3.83,5.33V394l9.92.33.58,20,18.33,17-.67-6.33-10-11L811,400l10.67,10,12.33.33.33-11-11.33-13,1.67-8.33,3.33-2.83h17.67L856,370.42l7.67-10.08-.67-45,10-.83,4.33,1.5,3.17,4.67v14.5h8.83l-.67-18.25,32-35.92.67-39.33,1.33-5.67,4.33-4.33,7.33-2.33L966,230.67l-.67,40,6.67-1,68-77.33,15.67-.67-.33-11.67-39.67-29-125-1.67-28-24.33-16.33.33L846,91l-9-6.33L805.67,84l-.33,16-16.67,1.33L662,178.67l-18.33,1-7.33-5.33L626.67,160,616,150.33,590.33,149l-54,71.67.67,9,14.83.5,4.17,4.17L555,247l15.33.33,1.33-39,11-18.33,12.67.67-12,17.67L581.67,251l-4,7L542,256.33l-22.5,24.33v20.67l-17.42,1-3.42,5.33-.67,18.5h21.67l3.67-3.25,1-8.58,25.33-16,21.67,20L574,313l-9.25-8.21-.08-6.87L587,319.17h10.67L609,328.08l14.33.25.33,13.67-68-1-3-4-1.33-8-22,.67-7.33,5L505.67,336,476,374.33l-1.33,25L500,424.67l54.33-.33,2,63,12,19.67-1,38,35.94-.67,4.88-3.33,2.42-3.33v-12ZM514.42,269.58l10.13-.71L524,256.11l-15.85-20.44H505l-.5,14.83-5.33-.5-5.33,4.67.33,12.33,8.67.67,3-10.83,1.75-1.75,3.25-.75,2.83,7.67ZM850.5,540.67l51.94-1.25L921,559.17h25.25l13.25-27.5V512.92l-24.37-17.25-2.87-12.75L929,473.17h-3.5L925,491l-24-14.87-15.44-1.5-35.12,30.5ZM797,421.33l-.42,15.08,24.54,23.21,3.88.54v-11.5Zm46.33,28.17,12.33.17,5.67-24.83-4.17-4.67-26.5,14Zm78.83,15.33,24.17-.67L923,445l-20.83.17Zm-4.92-126.29,19.13-18.75-.31-31.19L933,285.54l-6.5-.37-.75,29.5L902,339Zm172.5-188.37.25,18.5v2.75l-3.87,4.75-7.12,3.5h-4.75l1,22.5,3,2.5,8.25.75,3,3,.5,11.25h10v-69Zm-744,60.5-.5-45.25L302,125.67H283.5l-8,6-.5,8.77L314.73,175l2,24.06,12.47,11.13Zm65.25,4-.25-24.75L460,151.67V79.92l20-39.25-30-1v-29l-4-6.25L441,.67H391v21l-3.37,4.25L383,29.67H355l.75,45.63-35-.87.75,33.75,9.75,10.76,24.24,1.77,20.48,48-1,40.31,6.94,5.63Zm45-29v20l17.5.5,11.5-13v-3.5l-2.5-4.5ZM307.3,35.33l4.3-9L319.54,19l5.88-3.67L345,13.67V.67L281,0l-3.29,5-2.34,2.66.33,26.66-20.34.32.32,42,17.64,18.29,31.6-.75Zm-13.8,78.5,4.5-9.5-26.83.83L256.5,90.67,236.17,90l-.33,9.33L249.5,114.5Zm-50.17,31.83L262.67,127l-16.5-.5-3.5,2.67Zm-19.67-31.75,2.25-2.79,0-16.15L201,94.33V80.67l-15.17-.5-.67,24,7.67.83,9,9.5Zm12.67-32.5,14.08-.21L241.5,61.67H227ZM232,164.83l-.33-24-2.17-4.75-5-4.42-4.5-1.5L198,129l-10-9.33H165.5l.13,20.08,36.63,24.08Z"
+  pJS.WorldOrg = "M386.33,508.33l-.83,16.33-46.83,54.5-1,16.83L330,609l-15,.33.17-56.5L323.83,510,323,495.83l-31-32.17V442.83l9-12.17V415.33l-18.58-.83L262.83,393l-36.67.17L171.83,320l-1.17-52.83-4-12.17-7.33-12.83-9.5-10-9.5-7.83-12.67-4.5L66,219.67v-11l-3-4H54.5L50.83,202,51,179.83l5,.33,3.67-1.83,3.83-3.17,2-4.33.5-21.17,30.67.33L121,161.83l10.5,3,52,.5,12.67,9.83,41-.5,30-17,23.5,7.17.33,29.83H256l-.5,30.17,1,7.33,4.67,6.83,5.5,3.33,4.67,2.83,14.33-.17-.17,24.67,10.17.17-.17-59.5,20-.67,10.33,9.17-.17,11,13.67.17,6.17,5.17.33,12.17,20.33,10.83L365,262.5,354,274l-15.17-.17.17,24.5-46.5,49.33,3.17,8.5-.67,9.67-3.5.83L288.83,360l-2-10.5-35,.5-3,2.5L245.5,357l.5,21.17,3.17,5.83,10.33-.33,7.5-9.17,4.83.33,11.5,16.67.83,11.67,5.33,6.33,65.67,1.17,10.33,9.17,4,7.17,4.67,6.83,7,6.17,37.83-.17,6,6.83v17.5l-13.67,14.17L411.17,507ZM0,156.67v54l16-18.5,15,.5-.5-13ZM626.33,512,626,498.33l14.5-12.67v-40l25.08-32-.58-4.5H649.33l-42.33-53h15l34.67,40.08L695,376l-12-11-16.33-1.33L657,350.17h9.67l8,9.08,35,.42,30,53.33,6,.33,4.67-9.67.33-8.67,25.67-21.33,3,1.67,4.33-.33,4,2.33,3.83,5.33V394l9.92.33.58,20,18.33,17-.67-6.33-10-11L811,400l10.67,10,12.33.33.33-11-11.33-13,1.67-8.33,3.33-2.83h17.67L856,370.42l7.67-10.08-.67-45,10-.83,4.33,1.5,3.17,4.67v14.5h8.83l-.67-18.25,32-35.92.67-39.33,1.33-5.67,4.33-4.33,7.33-2.33L966,230.67l-.67,40,6.67-1,68-77.33,15.67-.67-.33-11.67-39.67-29-125-1.67-28-24.33-16.33.33L846,91l-9-6.33L805.67,84l-.33,16-16.67,1.33L662,178.67l-18.33,1-7.33-5.33L626.67,160,616,150.33,590.33,149l-54,71.67.67,9,14.83.5,4.17,4.17L555,247l15.33.33,1.33-39,11-18.33,12.67.67-12,17.67L581.67,251l-4,7L542,256.33l-22.5,24.33v20.67l-17.42,1-3.42,5.33-.67,18.5h21.67l3.67-3.25,1-8.58,25.33-16,21.67,20L574,313l-9.25-8.21-.08-6.87L587,319.17h10.67L609,328.08l14.33.25.33,13.67-68-1-3-4-1.33-8-22,.67-7.33,5L505.67,336,476,374.33l-1.33,25L500,424.67l54.33-.33,2,63,12,19.67-1,38,35.94-.67,4.88-3.33,2.42-3.33v-12ZM514.42,269.58l10.13-.71L524,256.11l-15.85-20.44H505l-.5,14.83-5.33-.5-5.33,4.67.33,12.33,8.67.67,3-10.83,1.75-1.75,3.25-.75,2.83,7.67ZM850.5,540.67l51.94-1.25L921,559.17h25.25l13.25-27.5V512.92l-24.37-17.25-2.87-12.75L929,473.17h-3.5L925,491l-24-14.87-15.44-1.5-35.12,30.5ZM797,421.33l-.42,15.08,24.54,23.21,3.88.54v-11.5Zm46.33,28.17,12.33.17,5.67-24.83-4.17-4.67-26.5,14Zm78.83,15.33,24.17-.67L923,445l-20.83.17Zm-4.92-126.29,19.13-18.75-.31-31.19L933,285.54l-6.5-.37-.75,29.5L902,339Zm172.5-188.37.25,18.5v2.75l-3.87,4.75-7.12,3.5h-4.75l1,22.5,3,2.5,8.25.75,3,3,.5,11.25h10v-69Zm-744,60.5-.5-45.25L302,125.67H283.5l-8,6-.5,8.77L314.73,175l2,24.06,12.47,11.13Zm65.25,4-.25-24.75L460,151.67V79.92l20-39.25-30-1v-29l-4-6.25L441,.67H391v21l-3.37,4.25L383,29.67H355l.75,45.63-35-.87.75,33.75,9.75,10.76,24.24,1.77,20.48,48-1,40.31,6.94,5.63Zm45-29v20l17.5.5,11.5-13v-3.5l-2.5-4.5ZM307.3,35.33l4.3-9L319.54,19l5.88-3.67L345,13.67V.67L281,0l-3.29,5-2.34,2.66.33,26.66-20.34.32.32,42,17.64,18.29,31.6-.75Zm-13.8,78.5,4.5-9.5-26.83.83L256.5,90.67,236.17,90l-.33,9.33L249.5,114.5Zm-50.17,31.83L262.67,127l-16.5-.5-3.5,2.67Zm-19.67-31.75,2.25-2.79,0-16.15L201,94.33V80.67l-15.17-.5-.67,24,7.67.83,9,9.5Zm12.67-32.5,14.08-.21L241.5,61.67H227ZM232,164.83l-.33-24-2.17-4.75-5-4.42-4.5-1.5L198,129l-10-9.33H165.5l.13,20.08,36.63,24.08Z"
 
-pJS.insert = function(str, index, value) {
-    return str.substr(0, index) + value + str.substr(index);
-}
+  pJS.studentHat = "M18.51,0,37,10.08V23.55H33.63V11.89L18.51,20.16,0,10.08ZM6.77,17.09l11.73,6.46,11.73-6.46v6.77L18.51,30.24,6.77,23.86Z";
+
+
+  pJS.insert = function(str, index, value) {
+      return str.substr(0, index) + value + str.substr(index);
+  }
+
   /* params settings */
   if(params){
     Object.deepExtend(pJS, params);
@@ -534,20 +538,12 @@ pJS.insert = function(str, index, value) {
     //pJS.fn.setParticleTargetShape(pJS.WorldSimpleFull);
     pJS.fn.drawCounter = 0;
 
+    pJS.fn.frameTickCounter = 0;
+    
+    pJS.fn.linesDrawnCount = 0;
+
   };
   
-  pJS.fn.clearParticleTargetShape = function(){
-    
-    //clear previous destionation coordinates
-    //----------------------------------------------
-    for(var i = 0; i < pJS.particles.array.length; i++){
-
-      /* the particle */
-      var p = pJS.particles.array[i];
-      p.destX = null;
-      p.destY = null;
-    }
-  }
 
   ///
   /// returns an array with tokens, each command and number is a token.
@@ -561,8 +557,8 @@ pJS.insert = function(str, index, value) {
     
     //handle special situation:
     //-------------------------------------------------
-    //l 12.33.33.33-11-11.33-13 
-    //needs to become: l 12.33 .33 .33 -11 -11.33 -13
+    //L12.33.33.33-11-11.33-13 
+    //needs to become: L 12.33 .33 .33 -11 -11.33 -13
     var numberStarted = false;
     var decimalStarted = false;
     for (var i=0; i < fixedUpPath.length; i++){
@@ -601,8 +597,45 @@ pJS.insert = function(str, index, value) {
 
   }
 
-  pJS.fn.setParticleTargetShape = function(simpleSvgShape, scaleFactor, shiftX, shiftY){
+
+  pJS.clearParticleTargetShape = function(){
     
+    //clear previous destionation coordinates
+    //----------------------------------------------
+    for (var i = 0; i < pJS.particles.array.length; i++)
+    {
+      /* the particle */
+      var p = pJS.particles.array[i];
+      p.destX = null;
+      p.destY = null;
+    }
+
+    pJS.fn.simpleSvgShape = null;
+    pJS.fn.dotsInSvgShape = 0;
+    pJS.fn.connectDotsWhenDistanceFromDest = 1;
+    pJS.fn.callbackOnDone = null;
+
+  }
+
+  /**
+   * param simpleSvgShape can accept an SVG d path parameter as a string with simple paths that include: m, l, v, h, and z commands.
+   * param scaleFactor multiplies the shape size by this factor
+   * param shiftX offsets the drawing of the svg path by x pixels.
+   * param shiftY offsets the drawing of the svg path by y pixels.
+   * param particleTravelSpeed dx/particleTravelSpeed is the delta by which the dots move. so less is faster. default is 200.
+   * param connectDotsWhenDistanceFromDest specifies how close dots have to be to the destination to be considered 
+   * there and for us to consider drawing lines between them. this can range from 0.1 to 0.5 to 1 to more.
+   * param drawShapeOneLineAtATime true or false. if true you can also specify speed at which to draw the shape.
+   * param delayBetweenLines this can be very fast like 0 or 1 or slower at 3 or 4.
+   * param callbackOnDone a function to call when the shape is drawn and connected as specified.
+   */
+  pJS.setParticleTargetShape = function(simpleSvgShape, scaleFactor, shiftX, shiftY, particleTravelSpeed,
+  connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, delayBetweenLines, callbackOnDone){
+    
+    //clear previous target path:
+    pJS.clearParticleTargetShape();
+
+      
     if (scaleFactor === undefined)
       scaleFactor = 1;
     
@@ -612,12 +645,30 @@ pJS.insert = function(str, index, value) {
     if (shiftY === undefined)
       shiftY = 0;
     
+    if (particleTravelSpeed == undefined)
+      particleTravelSpeed = 200;
+    
+    if (drawShapeOneLineAtATime === undefined)
+      drawShapeOneLineAtATime = false;
+    
+    if (delayBetweenLines === undefined)
+      delayBetweenLines = 1;
 
-    var res = pJS.fn.tokenizeSvg(simpleSvgShape);
+    if (connectDotsWhenDistanceFromDest === undefined)
+      connectDotsWhenDistanceFromDest = 1;
     
 
-    pJS.fn.clearParticleTargetShape();
 
+    //save function to call back when animation is done
+    pJS.fn.simpleSvgShape = simpleSvgShape;
+    pJS.fn.dotsInSvgShape = 0;
+    pJS.fn.callbackOnDone = callbackOnDone;
+    pJS.fn.particleTravelSpeed = particleTravelSpeed;
+    pJS.fn.connectDotsWhenDistanceFromDest = connectDotsWhenDistanceFromDest;
+    pJS.fn.drawShapeOneLineAtATime = drawShapeOneLineAtATime;
+    pJS.fn.delayBetweenLines = delayBetweenLines;
+    
+    var res = pJS.fn.tokenizeSvg(simpleSvgShape);
     
 
     // set destination points: 
@@ -773,7 +824,7 @@ pJS.insert = function(str, index, value) {
 
 
       }
-      else if(res[i] == '')
+      else if (res[i] == '')
       {
         //empty, skip.
         i++;
@@ -787,12 +838,20 @@ pJS.insert = function(str, index, value) {
         
       }
     }
+
+    //save number of particles in target shape
+    pJS.fn.dotsInSvgShape = iParticle;
+    
   }
 
 
   pJS.fn.particlesUpdate = function() {
 
-    
+    //true when all particles are in proper place - or close to it anyway :)
+    //assume true, and try to disprove
+    var particlesCloseToDestination = true;
+
+
     for (var i = 0; i < pJS.particles.array.length; i++){
 
       /* the particle */
@@ -806,15 +865,16 @@ pJS.insert = function(str, index, value) {
           //if we know the destination, send the particle there
           var dx = p.destX - p.x;
           var dy = p.destY - p.y;
-          dx = dx / 200;
-          dy = dy / 200;
+          dx = dx / pJS.fn.particleTravelSpeed;
+          dy = dy / pJS.fn.particleTravelSpeed;
           
           p.x += dx * ms;
           p.y += dy * ms;
           
-          if (p.linkTo != null){
-            pJS.fn.interact.linkParticles(p, p.linkTo);
-          }
+          //test if particle is within striking distance of destination, if not then path is not complete:
+          if (dx > pJS.fn.connectDotsWhenDistanceFromDest || dy > pJS.fn.connectDotsWhenDistanceFromDest)
+            particlesCloseToDestination = false;
+
         }
         else{
           //otherwise keep the particle moving in the direction set by default
@@ -824,14 +884,20 @@ pJS.insert = function(str, index, value) {
       }
 
 
-      /*pJS.fn.drawCounter++;
+/*
+      pJS.fn.drawCounter++;
 
-      if (pJS.fn.drawCounter == 40000)
+      if (pJS.fn.drawCounter == 500)
       {
         //pJS.fn.setParticleTargetShape(4);
-        pJS.fn.setParticleTargetShape(pJS.California, 2, 500, 100);
+        pJS.setParticleTargetShape(pJS.California, 2, 500, 100, 100, 0.1, true, 0);
+        //pJS.fn.setParticleTargetShape(pJS.studentHat, 10, 500, 100);
+        
       }
-      */
+      else if (pJS.fn.drawCounter == 120000){
+        pJS.clearParticleTargetShape();
+      }
+*/
 
       /*
       else if (pJS.fn.drawCounter == 230000){
@@ -852,7 +918,7 @@ pJS.insert = function(str, index, value) {
       else if (pJS.fn.drawCounter == 600000){
         pJS.fn.clearParticleTargetShape();
       }
-*/
+     */
 
       /* change opacity status */
       if(pJS.particles.opacity.anim.enable) {
@@ -961,7 +1027,55 @@ pJS.insert = function(str, index, value) {
 
     }
 
+    // Draw lines connecting particles!:
+    //------------------------------------
+    //if path is complete (as specified by isPathComplete variable), or if all lines were already drawn.
+    if (particlesCloseToDestination || pJS.fn.linesDrawnCount >= pJS.fn.dotsInSvgShape)
+    { 
+      
+      pJS.fn.frameTickCounter++;
+      
+      for (var i = 0; i < pJS.fn.dotsInSvgShape; i++){
+
+        // get a particle
+        var p = pJS.particles.array[i];
+
+        //if we are not drawing the shape one line at a time, connect all particles now:
+        if (!pJS.fn.drawShapeOneLineAtATime && p.linkTo != null)
+        {
+          pJS.fn.interact.linkParticles(p, p.linkTo);
+        }
+        else
+        {
+          //draw lines already visible
+          if (p.linkTo != null && i < pJS.fn.linesDrawnCount)
+          { 
+            pJS.fn.interact.linkParticles(p, p.linkTo);
+          }
+          
+          //decide if it is time to show new line:
+          if (pJS.fn.frameTickCounter > pJS.fn.delayBetweenLines)
+          {
+            pJS.fn.linesDrawnCount++;
+            pJS.fn.frameTickCounter = 0;
+          }
+
+
+        }
+
+      }
+
+
+      if (pJS.fn.callbackOnDone != null && i == pJS.fn.dotsInSvgShape)
+      {
+        pJS.fn.callbackOnDone();
+        pJS.fn.callbackOnDone = null;
+      }
+
+    }
+
   };
+
 
   pJS.fn.particlesDraw = function(){
 
