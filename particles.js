@@ -909,7 +909,7 @@ var pJS = function(tag_id, params){
       else if (pJS.fn.drawCounter == 100000){
         pJS.clearParticleTargetShape();
 
-        setTimeout(function(){pJS.particlesSetNumber(500);}, 5000);
+        setTimeout(function(){pJS.setParticleCount(50);}, 5000);
         
       }
       */
@@ -1133,12 +1133,12 @@ var pJS = function(tag_id, params){
   /**
    * Changes number of particles without resetting the whole thing.
    */
-  pJS.particlesSetNumber = function(newNumberOfParticles){
+  pJS.setParticleCount = function(newNumberOfParticles){
     //we just want to cull or add some particles, that's all ;)
 
     if (newNumberOfParticles < pJS.particles.array.length)
     {
-      pJS.fn.modes.removeParticles(newNumberOfParticles);
+      pJS.fn.modes.removeParticles(pJS.particles.array.length - newNumberOfParticles);
     }
     else
     {
