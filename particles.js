@@ -534,13 +534,14 @@ var pJS = function(tag_id, params){
       pJS.particles.array.push(new pJS.fn.particle(pJS.particles.color, pJS.particles.opacity.value));
     }
 
+    //console.debug("particlesCreate");
 
-    //pJS.fn.setParticleTargetShape(pJS.WorldSimpleFull);
-    pJS.fn.drawCounter = 0;
-
-    pJS.fn.frameTickCounter = 0;
+    //clean up flags, etc...
+    pJS.clearParticleTargetShape();
     
-    pJS.fn.linesDrawnCount = 0;
+
+    //temp counter used for debugging
+    pJS.fn.drawCounter = 0;
 
   };
   
@@ -614,6 +615,10 @@ var pJS = function(tag_id, params){
     pJS.fn.dotsInSvgShape = 0;
     pJS.fn.connectDotsWhenDistanceFromDest = 1;
     pJS.fn.callbackOnDone = null;
+
+    pJS.fn.frameTickCounter = 0;
+    pJS.fn.linesDrawnCount = 0;
+    pJS.fn.lineDrawingCompleted = false;
 
   }
 
@@ -844,13 +849,18 @@ var pJS = function(tag_id, params){
     
   }
 
+  pJS.fn.testCallbackOnDone= function(){
+    console.debug("callback on DONE");
+  }
 
   pJS.fn.particlesUpdate = function() {
 
     //true when all particles are in proper place - or close to it anyway :)
     //assume true, and try to disprove
     var particlesCloseToDestination = true;
-
+    
+    if (pJS.particles.array.length == 0 || pJS.fn.dotsInSvgShape == 0 || !pJS.particles.move.enable)
+      particlesCloseToDestination = false;
 
     for (var i = 0; i < pJS.particles.array.length; i++){
 
@@ -884,20 +894,20 @@ var pJS = function(tag_id, params){
       }
 
 
-/*
+      /*
       pJS.fn.drawCounter++;
 
-      if (pJS.fn.drawCounter == 500)
+      if (pJS.fn.drawCounter == 10000)
       {
-        //pJS.fn.setParticleTargetShape(4);
-        pJS.setParticleTargetShape(pJS.California, 2, 500, 100, 100, 0.1, true, 0);
-        //pJS.fn.setParticleTargetShape(pJS.studentHat, 10, 500, 100);
+        //function(simpleSvgShape, scaleFactor, shiftX, shiftY, particleTravelSpeed, 
+        //connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, delayBetweenLines, callbackOnDone)
+        pJS.setParticleTargetShape(pJS.California, 2, 500, 10, 100, 0.1, true, 0, pJS.fn.testCallbackOnDone);
         
       }
       else if (pJS.fn.drawCounter == 120000){
         pJS.clearParticleTargetShape();
       }
-*/
+      */
 
       /*
       else if (pJS.fn.drawCounter == 230000){
@@ -1002,7 +1012,7 @@ var pJS = function(tag_id, params){
       }
 
       /* interaction auto between particles */
-      if(p.destX == null && (pJS.particles.line_linked.enable || pJS.particles.move.attract.enable)){
+      if (p.destX == null && (pJS.particles.line_linked.enable || pJS.particles.move.attract.enable)){
         for(var j = i + 1; j < pJS.particles.array.length; j++){
           var p2 = pJS.particles.array[j];
 
@@ -1024,13 +1034,18 @@ var pJS = function(tag_id, params){
         }
       }
 
-
     }
+
+    //console.debug("particlesCloseToDestination: " + particlesCloseToDestination);
+
+    //if particles are close to destination and we are NOT drawing lines one at a time, then line drawing is complete.
+    if (particlesCloseToDestination && !pJS.fn.drawShapeOneLineAtATime)
+      pJS.fn.lineDrawingCompleted = true;   
+    
 
     // Draw lines connecting particles!:
     //------------------------------------
-    //if path is complete (as specified by isPathComplete variable), or if all lines were already drawn.
-    if (particlesCloseToDestination || pJS.fn.linesDrawnCount >= pJS.fn.dotsInSvgShape)
+    if (pJS.fn.lineDrawingCompleted || particlesCloseToDestination)
     { 
       
       pJS.fn.frameTickCounter++;
@@ -1044,6 +1059,7 @@ var pJS = function(tag_id, params){
         if (!pJS.fn.drawShapeOneLineAtATime && p.linkTo != null)
         {
           pJS.fn.interact.linkParticles(p, p.linkTo);
+          pJS.fn.linesDrawnCount++;
         }
         else
         {
@@ -1058,19 +1074,24 @@ var pJS = function(tag_id, params){
           {
             pJS.fn.linesDrawnCount++;
             pJS.fn.frameTickCounter = 0;
+            
+            if (pJS.fn.linesDrawnCount >= pJS.fn.dotsInSvgShape)
+              pJS.fn.lineDrawingCompleted = true;
+            
           }
-
 
         }
 
       }
 
-
-      if (pJS.fn.callbackOnDone != null && i == pJS.fn.dotsInSvgShape)
+      //if we have a callback function on done, call it when everything is ready:
+      if (pJS.fn.callbackOnDone != null && pJS.fn.lineDrawingCompleted)
       {
-        pJS.fn.callbackOnDone();
-        pJS.fn.callbackOnDone = null;
+          pJS.fn.callbackOnDone();
+          pJS.fn.callbackOnDone = null;
+          //alert('done, i: ' + i + ", dotsInSvgShape: " + pJS.fn.dotsInSvgShape + ", pJS.fn.linesDrawnCount: " + pJS.fn.linesDrawnCount);
       }
+
 
     }
 
