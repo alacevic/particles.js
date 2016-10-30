@@ -906,8 +906,11 @@ var pJS = function(tag_id, params){
         pJS.setParticleTargetShape(pJS.California, 2, 500, 10, 100, 0.1, true, 0, pJS.fn.testCallbackOnDone);
         
       }
-      else if (pJS.fn.drawCounter == 120000){
+      else if (pJS.fn.drawCounter == 100000){
         pJS.clearParticleTargetShape();
+
+        setTimeout(function(){pJS.particlesSetNumber(500);}, 5000);
+        
       }
       */
 
@@ -1127,6 +1130,21 @@ var pJS = function(tag_id, params){
     pJS.particles.array = [];
   };
 
+  /**
+   * Changes number of particles without resetting the whole thing.
+   */
+  pJS.particlesSetNumber = function(newNumberOfParticles){
+    //we just want to cull or add some particles, that's all ;)
+
+    if (newNumberOfParticles < pJS.particles.array.length)
+    {
+      pJS.fn.modes.removeParticles(newNumberOfParticles);
+    }
+    else
+    {
+      pJS.fn.modes.pushParticles(newNumberOfParticles - pJS.particles.array.length);
+    }
+  }
   pJS.fn.particlesRefresh = function(){
 
     /* init all */
