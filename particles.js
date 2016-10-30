@@ -615,6 +615,7 @@ var pJS = function(tag_id, params){
     pJS.fn.dotsInSvgShape = 0;
     pJS.fn.connectDotsWhenDistanceFromDest = 1;
     pJS.fn.callbackOnDone = null;
+    pJS.fn.callbackarticlesInPlace = null;
 
     pJS.fn.frameTickCounter = 0;
     pJS.fn.linesDrawnCount = 0;
@@ -635,7 +636,7 @@ var pJS = function(tag_id, params){
    * param callbackOnDone a function to call when the shape is drawn and connected as specified.
    */
   pJS.setParticleTargetShape = function(simpleSvgShape, scaleFactor, shiftX, shiftY, particleTravelSpeed,
-  connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, delayBetweenLines, callbackOnDone){
+  connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, delayBetweenLines, callbackOnDone, callbackarticlesInPlace){
     
     //clear previous target path:
     pJS.clearParticleTargetShape();
@@ -668,6 +669,7 @@ var pJS = function(tag_id, params){
     pJS.fn.simpleSvgShape = simpleSvgShape;
     pJS.fn.dotsInSvgShape = 0;
     pJS.fn.callbackOnDone = callbackOnDone;
+    pJS.fn.callbackarticlesInPlace = callbackarticlesInPlace;
     pJS.fn.particleTravelSpeed = particleTravelSpeed;
     pJS.fn.connectDotsWhenDistanceFromDest = connectDotsWhenDistanceFromDest;
     pJS.fn.drawShapeOneLineAtATime = drawShapeOneLineAtATime;
@@ -1082,6 +1084,13 @@ var pJS = function(tag_id, params){
 
         }
 
+      }
+
+      //notify that particles are close to in position
+      if (particlesCloseToDestination && pJS.fn.callbackarticlesInPlace != null)
+      {
+        pJS.fn.callbackarticlesInPlace();
+        pJS.fn.callbackarticlesInPlace = null;
       }
 
       //if we have a callback function on done, call it when everything is ready:
