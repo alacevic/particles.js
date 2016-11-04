@@ -906,7 +906,7 @@ var pJS = function(tag_id, params){
       }
 
 
-      
+      /*
       pJS.fn.drawCounter++;
 
       if (pJS.fn.drawCounter == 100)
@@ -922,7 +922,7 @@ var pJS = function(tag_id, params){
         //setTimeout(function(){pJS.setParticleCount(50);}, 5000);
         
       }
-      
+      */
 
       /* change opacity status */
       if(pJS.particles.opacity.anim.enable) {
