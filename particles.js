@@ -891,8 +891,7 @@ var pJS = function(tag_id, params){
           p.x += dx * ms;
           p.y += dy * ms;
           
-          p.x = p.destX;
-          p.y = p.destY;
+          
           //test if particle is within striking distance of destination, if not then path is not complete:
           if (dx > pJS.fn.connectDotsWhenDistanceFromDest || dy > pJS.fn.connectDotsWhenDistanceFromDest)
             particlesCloseToDestination = false;
@@ -906,7 +905,7 @@ var pJS = function(tag_id, params){
       }
 
 
-      /*
+      
       pJS.fn.drawCounter++;
 
       if (pJS.fn.drawCounter == 100)
@@ -922,7 +921,7 @@ var pJS = function(tag_id, params){
         //setTimeout(function(){pJS.setParticleCount(50);}, 5000);
         
       }
-      */
+      
 
       /* change opacity status */
       if(pJS.particles.opacity.anim.enable) {
