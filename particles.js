@@ -615,7 +615,7 @@ var pJS = function(tag_id, params){
     pJS.fn.dotsInSvgShape = 0;
     pJS.fn.connectDotsWhenDistanceFromDest = 1;
     pJS.fn.callbackOnDone = null;
-    pJS.fn.callbackarticlesInPlace = null;
+    pJS.fn.callbackParticlesInPosition = null;
 
     pJS.fn.frameTickCounter = 0;
     pJS.fn.linesDrawnCount = 0;
@@ -625,9 +625,12 @@ var pJS = function(tag_id, params){
 
   /**
    * param simpleSvgShape can accept an SVG d path parameter as a string with simple paths that include: m, l, v, h, and z commands.
-   * param scaleFactor multiplies the shape size by this factor
-   * param shiftX offsets the drawing of the svg path by x pixels.
-   * param shiftY offsets the drawing of the svg path by y pixels.
+   * param svgWidth svg image width
+   * param svgHeight svg image height
+   * param targetWidth maximum target width of image. the image will be scaled to this width in proportion with height.
+   * param targetHeight maximum target height of image. the image will be scaled to this height in proportion with width.
+   * param offsetX offsets the drawing of the svg path by x pixels.
+   * param offsetY offsets the drawing of the svg path by y pixels.
    * param particleTravelSpeed dx/particleTravelSpeed is the delta by which the dots move. so less is faster. default is 200.
    * param connectDotsWhenDistanceFromDest specifies how close dots have to be to the destination to be considered 
    * there and for us to consider drawing lines between them. this can range from 0.1 to 0.5 to 1 to more.
@@ -635,21 +638,26 @@ var pJS = function(tag_id, params){
    * param delayBetweenLines this can be very fast like 0 or 1 or slower at 3 or 4.
    * param callbackOnDone a function to call when the shape is drawn and connected as specified.
    */
-  pJS.setParticleTargetShape = function(simpleSvgShape, scaleFactor, shiftX, shiftY, particleTravelSpeed,
-  connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, delayBetweenLines, callbackOnDone, callbackarticlesInPlace){
+  pJS.setParticleTargetShape = function(simpleSvgShape, svgWidth, svgHeight, targetWidth, targetHeight, offsetX, offsetY, 
+                                        particleTravelSpeed,connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, 
+                                        delayBetweenLines, callbackOnDone, callbackParticlesInPosition){
     
     //clear previous target path:
     pJS.clearParticleTargetShape();
 
-      
+    //compute the largest scale factor we can use to achieve targetWidth/height
+    var scaleFactor = targetWidth / svgWidth;
+    if (targetHeight / svgHeight < scaleFactor)
+      scaleFactor = targetHeight / svgHeight;
+    
     if (scaleFactor === undefined)
       scaleFactor = 1;
     
-    if (shiftX === undefined)
-      shiftX = 0;
+    if (offsetX === undefined)
+      offsetX = 0;
     
-    if (shiftY === undefined)
-      shiftY = 0;
+    if (offsetY === undefined)
+      offsetY = 0;
     
     if (particleTravelSpeed == undefined)
       particleTravelSpeed = 200;
@@ -669,7 +677,7 @@ var pJS = function(tag_id, params){
     pJS.fn.simpleSvgShape = simpleSvgShape;
     pJS.fn.dotsInSvgShape = 0;
     pJS.fn.callbackOnDone = callbackOnDone;
-    pJS.fn.callbackarticlesInPlace = callbackarticlesInPlace;
+    pJS.fn.callbackParticlesInPosition = callbackParticlesInPosition;
     pJS.fn.particleTravelSpeed = particleTravelSpeed;
     pJS.fn.connectDotsWhenDistanceFromDest = connectDotsWhenDistanceFromDest;
     pJS.fn.drawShapeOneLineAtATime = drawShapeOneLineAtATime;
@@ -742,15 +750,15 @@ var pJS = function(tag_id, params){
             //aboslute position! so we should ofset it if offset is specified.
             if (iParticle == 0)
             {
-              p.destX += shiftX;
-              p.destY += shiftY;
+              p.destX += offsetX;
+              p.destY += offsetY;
             }
           }
           else
           {
             //this is an absolute position:
-            p.destX = svgPointX + shiftX;
-            p.destY = svgPointY + shiftY;
+            p.destX = svgPointX + offsetX;
+            p.destY = svgPointY + offsetY;
           }
           
           //if line, link this particle to previous one, unless it is the first particle in path.
@@ -783,7 +791,7 @@ var pJS = function(tag_id, params){
           if (currentCommand == 'h')
             p.destX = svgHorizDistance + prevParticle.destX;
           else
-            p.destX = svgHorizDistance + shiftX;
+            p.destX = svgHorizDistance + offsetX;
           
           //y axis stays the same
           p.destY = prevParticle.destY;
@@ -816,7 +824,7 @@ var pJS = function(tag_id, params){
           if (currentCommand == 'v')
             p.destY = svgVerticalDistance + prevPoint.destY;
           else
-            p.destY = svgVerticalDistance + shiftY;
+            p.destY = svgVerticalDistance + offsetY;
           
           //x axis stays the same
           p.destX = prevPoint.destX;
@@ -883,6 +891,8 @@ var pJS = function(tag_id, params){
           p.x += dx * ms;
           p.y += dy * ms;
           
+          p.x = p.destX;
+          p.y = p.destY;
           //test if particle is within striking distance of destination, if not then path is not complete:
           if (dx > pJS.fn.connectDotsWhenDistanceFromDest || dy > pJS.fn.connectDotsWhenDistanceFromDest)
             particlesCloseToDestination = false;
@@ -896,44 +906,23 @@ var pJS = function(tag_id, params){
       }
 
 
-      /*
+      
       pJS.fn.drawCounter++;
 
-      if (pJS.fn.drawCounter == 10000)
+      if (pJS.fn.drawCounter == 100)
       {
-        //function(simpleSvgShape, scaleFactor, shiftX, shiftY, particleTravelSpeed, 
+        //function(simpleSvgShape, scaleFactor, offsetX, offsetY, particleTravelSpeed, 
         //connectDotsWhenDistanceFromDest, drawShapeOneLineAtATime, delayBetweenLines, callbackOnDone)
-        pJS.setParticleTargetShape(pJS.California, 2, 500, 10, 100, 0.1, true, 0, pJS.fn.testCallbackOnDone);
+        pJS.setParticleTargetShape(pJS.WorldSimpleFull, 100, 150, 100, 150, 0, 0, 100, 0.1, true, 0, pJS.fn.testCallbackOnDone);
         
       }
       else if (pJS.fn.drawCounter == 100000){
-        pJS.clearParticleTargetShape();
+        //pJS.clearParticleTargetShape();
 
-        setTimeout(function(){pJS.setParticleCount(50);}, 5000);
+        //setTimeout(function(){pJS.setParticleCount(50);}, 5000);
         
       }
-      */
-
-      /*
-      else if (pJS.fn.drawCounter == 230000){
-        //pJS.fn.setParticleTargetShape(2);
-        pJS.fn.setParticleTargetShape(pJS.Nevada);
-      }
-      else if (pJS.fn.drawCounter == 280000){
-        //pJS.fn.setParticleTargetShape(3);
-        pJS.fn.setParticleTargetShape(pJS.Colorado);
-      }
-      else if (pJS.fn.drawCounter == 380000){
-        //pJS.fn.setParticleTargetShape(1);
-        pJS.fn.setParticleTargetShape(pJS.Vermont);
-      }
-      else if (pJS.fn.drawCounter == 480000){
-        pJS.fn.setParticleTargetShape(pJS.Texas);
-      }
-      else if (pJS.fn.drawCounter == 600000){
-        pJS.fn.clearParticleTargetShape();
-      }
-     */
+      
 
       /* change opacity status */
       if(pJS.particles.opacity.anim.enable) {
@@ -1090,10 +1079,10 @@ var pJS = function(tag_id, params){
       }
 
       //notify that particles are close to in position
-      if (particlesCloseToDestination && pJS.fn.callbackarticlesInPlace != null)
+      if (particlesCloseToDestination && pJS.fn.callbackParticlesInPosition != null)
       {
-        pJS.fn.callbackarticlesInPlace();
-        pJS.fn.callbackarticlesInPlace = null;
+        pJS.fn.callbackParticlesInPosition();
+        pJS.fn.callbackParticlesInPosition = null;
       }
 
       //if we have a callback function on done, call it when everything is ready:
@@ -1101,7 +1090,6 @@ var pJS = function(tag_id, params){
       {
           pJS.fn.callbackOnDone();
           pJS.fn.callbackOnDone = null;
-          //alert('done, i: ' + i + ", dotsInSvgShape: " + pJS.fn.dotsInSvgShape + ", pJS.fn.linesDrawnCount: " + pJS.fn.linesDrawnCount);
       }
 
 
