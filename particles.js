@@ -645,6 +645,12 @@ var pJS = function(tag_id, params){
     //clear previous target path:
     pJS.clearParticleTargetShape();
 
+    //compute for retina:
+    svgWidth *= pJS.canvas.pxratio;
+    svgHeight *= pJS.canvas.pxratio;
+    targetWidth *= pJS.canvas.pxratio;
+    targetHeight *= pJS.canvas.pxratio;
+
     //compute the largest scale factor we can use to achieve targetWidth/height
     var scaleFactor = targetWidth / svgWidth;
     if (targetHeight / svgHeight < scaleFactor)
@@ -671,7 +677,11 @@ var pJS = function(tag_id, params){
     if (connectDotsWhenDistanceFromDest === undefined)
       connectDotsWhenDistanceFromDest = 1;
     
-
+    //compute for retina:
+    offsetX *= pJS.canvas.pxratio;
+    offsetY *= pJS.canvas.pxratio;
+    connectDotsWhenDistanceFromDest *= pJS.canvas.pxratio;
+    scaleFactor *= pJS.canvas.pxratio;
 
     //save function to call back when animation is done
     pJS.fn.simpleSvgShape = simpleSvgShape;
@@ -905,7 +915,7 @@ var pJS = function(tag_id, params){
       }
 
 
-      
+      /*
       pJS.fn.drawCounter++;
 
       if (pJS.fn.drawCounter == 100)
@@ -921,7 +931,7 @@ var pJS = function(tag_id, params){
         //setTimeout(function(){pJS.setParticleCount(50);}, 5000);
         
       }
-      
+      */
 
       /* change opacity status */
       if(pJS.particles.opacity.anim.enable) {
